@@ -1,7 +1,12 @@
 import 'package:app_todo/services/auth.dart';
+import 'package:app_todo/widgets/rounded_button.dart';
+import 'package:app_todo/widgets/rounded_input_field.dart';
+import 'package:app_todo/widgets/rounded_password_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants.dart';
 
 class LoginScreen extends StatefulWidget {
   final FirebaseAuth auth;
@@ -22,25 +27,25 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(60.0),
+          padding: const EdgeInsets.all(0.0),
           child: Builder(builder: (BuildContext context) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextFormField(
-                  decoration: const InputDecoration(hintText: "Username"),
+                RoundedInputField(
+                  hintText: "Your Email",
                   controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
                 ),
-                TextFormField(
-                  textAlign: TextAlign.center,
-                  decoration: const InputDecoration(hintText: "Password"),
+                RoundedPasswordField(
                   controller: _passwordController,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                RaisedButton(
-                  onPressed: () async {
+                RoundedButton(
+                  text: "LOGIN",
+                  press: () async {
                     final String returnValue =
                         await Auth(auth: widget.auth).signIn(
                       email: _emailController.text,
@@ -57,10 +62,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                     }
                   },
-                  child: const Text("Sign In"),
                 ),
-                FlatButton(
-                  onPressed: () async {
+                RoundedButton(
+                  text: "Create Account",
+                  color: kPrimaryLightColor,
+                  textColor: Colors.black,
+                  press: () async {
                     final String returnValue =
                         await Auth(auth: widget.auth).createAccount(
                       email: _emailController.text,
@@ -77,7 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                     }
                   },
-                  child: const Text("Create Account"),
                 )
               ],
             );
