@@ -21,7 +21,7 @@ class Database {
         }
         return retVal;
       });
-    } catch (e) {
+    } catch (error) {
       rethrow;
     }
   }
