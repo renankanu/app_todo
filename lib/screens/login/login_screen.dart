@@ -28,7 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
-                  textAlign: TextAlign.center,
                   decoration: const InputDecoration(hintText: "Username"),
                   controller: _emailController,
                 ),

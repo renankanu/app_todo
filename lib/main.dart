@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
+import 'constants.dart';
+
 void main() {
   runApp(App());
 }
@@ -16,7 +18,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: Colors.white,
+      ),
       home: FutureBuilder(
         // Initialize FlutterFire:
         future: Firebase.initializeApp(),
@@ -61,7 +66,7 @@ class _RootState extends State<Root> {
       stream: Auth(auth: _auth).user,
       builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
-          if (snapshot.data?.uid == null) {
+          if (snapshot.data?.uid != null) {
             return LoginScreen(
               auth: _auth,
               firestore: _firestore,
