@@ -80,7 +80,7 @@ class _RootState extends State<Root> {
         } else {
           return const Scaffold(
             body: Center(
-              child: Text("Loading..."),
+              child: CircularProgressIndicator(),
             ),
           );
         }
