@@ -43,6 +43,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 20,
                 ),
+                const Divider(
+                  color: Colors.black,
+                  height: 20,
+                  thickness: 1,
+                  indent: 0,
+                  endIndent: 0,
+                ),
                 RoundedButton(
                   text: "LOGIN",
                   press: () async {
