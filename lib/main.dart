@@ -1,5 +1,6 @@
 import 'package:app_todo/screens/core/core_screen.dart';
 import 'package:app_todo/screens/login/login_screen.dart';
+import 'package:app_todo/screens/welcome/welcome_screen.dart';
 import 'package:app_todo/services/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -67,10 +68,7 @@ class _RootState extends State<Root> {
       builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           if (snapshot.data?.uid != null) {
-            return LoginScreen(
-              auth: _auth,
-              firestore: _firestore,
-            );
+            return const WelcomeScreen();
           } else {
             return CoreScreen(
               auth: _auth,
