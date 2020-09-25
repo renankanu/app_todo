@@ -1,14 +1,20 @@
 import 'package:app_todo/services/auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  final FirebaseAuth auth;
+  final FirebaseFirestore firestore;
+
+  const LoginScreen({Key key, @required this.auth, @required this.firestore})
+      : super(key: key);
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   @override
@@ -35,7 +41,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 RaisedButton(
                   onPressed: () async {
-                    final String returnValue = await Auth(auth: _auth).signIn(
+                    final String returnValue =
+                        await Auth(auth: widget.auth).signIn(
                       email: _emailController.text,
                       password: _passwordController.text,
                     );
@@ -55,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 FlatButton(
                   onPressed: () async {
                     final String returnValue =
-                        await Auth(auth: _auth).createAccount(
+                        await Auth(auth: widget.auth).createAccount(
                       email: _emailController.text,
                       password: _passwordController.text,
                     );
