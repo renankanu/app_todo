@@ -25,4 +25,15 @@ void main() {
   test("emit occurs", () async {
     expectLater(auth.user, emitsInOrder([_mockUser]));
   });
+
+  test("create account", () async {
+    when(
+      mockFirebaseAuth.createUserWithEmailAndPassword(
+          email: "kanu@gmail.com", password: "123456"),
+    ).thenAnswer((realInvocation) => null);
+
+    expect(
+        await auth.createAccount(email: "kanu@gmail.com", password: "123456"),
+        "Success");
+  });
 }
