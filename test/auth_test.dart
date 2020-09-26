@@ -48,4 +48,14 @@ void main() {
         await auth.createAccount(email: "kanu@gmail.com", password: "123456"),
         "You screwed up");
   });
+
+  test("sign in", () async {
+    when(
+      mockFirebaseAuth.signInWithEmailAndPassword(
+          email: "kanu@gmail.com", password: "123456"),
+    ).thenAnswer((realInvocation) => null);
+
+    expect(await auth.signIn(email: "kanu@gmail.com", password: "123456"),
+        "Success");
+  });
 }
