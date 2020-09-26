@@ -77,4 +77,13 @@ void main() {
 
     expect(await auth.signOut(), "Success");
   });
+
+  test("create account exception", () async {
+    when(
+      mockFirebaseAuth.signOut(),
+    ).thenAnswer((realInvocation) =>
+        throw FirebaseAuthException(message: "You screwed up"));
+
+    expect(await auth.signOut(), "You screwed up");
+  });
 }
