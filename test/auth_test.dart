@@ -58,4 +58,15 @@ void main() {
     expect(await auth.signIn(email: "kanu@gmail.com", password: "123456"),
         "Success");
   });
+
+  test("sign in exception", () async {
+    when(
+      mockFirebaseAuth.signInWithEmailAndPassword(
+          email: "tadas@gmail.com", password: "123456"),
+    ).thenAnswer((realInvocation) =>
+        throw FirebaseAuthException(message: "You screwed up"));
+
+    expect(await auth.signIn(email: "tadas@gmail.com", password: "123456"),
+        "You screwed up");
+  });
 }
