@@ -33,11 +33,13 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RoundedInputField(
+                  key: const ValueKey("username"),
                   hintText: "Your Email",
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
                 RoundedPasswordField(
+                  key: const ValueKey("password"),
                   controller: _passwordController,
                 ),
                 const SizedBox(
@@ -51,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   endIndent: 0,
                 ),
                 RoundedButton(
+                  key: const ValueKey("signIn"),
                   text: "LOGIN",
                   press: () async {
                     final String returnValue =
@@ -71,6 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 RoundedButton(
+                  key: const ValueKey("createAccount"),
                   text: "Create Account",
                   color: kPrimaryLightColor,
                   textColor: Colors.black,
