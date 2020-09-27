@@ -49,5 +49,31 @@ void main() {
       await driver.tap(createAccountButton);
       await driver.waitFor(find.text("Your Todos"));
     });
+
+    test('login', () async {
+      if (await isPresent(signOutButton)) {
+        await driver.tap(signOutButton);
+      }
+
+      await driver.tap(usernameField);
+      await driver.enterText("kanu@gmail.com");
+
+      await driver.tap(passwordField);
+      await driver.enterText("123456");
+
+      await driver.tap(signInButton);
+      await driver.waitFor(find.text("Your Todos"));
+    });
+
+    test('add a todo', () async {
+      if (await isPresent(signOutButton)) {
+        await driver.tap(addField);
+        await driver.enterText("make an integration test video");
+        await driver.tap(addButton);
+
+        await driver.waitFor(find.text("make an integration test video"),
+            timeout: const Duration(seconds: 3));
+      }
+    });
   });
 }
