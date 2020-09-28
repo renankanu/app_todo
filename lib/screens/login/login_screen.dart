@@ -5,6 +5,7 @@ import 'package:app_todo/widgets/rounded_password_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
 
@@ -24,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
         child: Padding(
@@ -32,6 +34,10 @@ class _LoginScreenState extends State<LoginScreen> {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SvgPicture.asset(
+                  "assets/images/login.svg",
+                  height: size.height * 0.20,
+                ),
                 RoundedInputField(
                   key: const ValueKey("username"),
                   hintText: "Your Email",
