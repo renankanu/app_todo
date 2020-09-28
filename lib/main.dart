@@ -1,12 +1,12 @@
-import 'package:app_todo/screens/core/core_screen.dart';
-import 'package:app_todo/screens/login/login_screen.dart';
-import 'package:app_todo/services/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
+import 'app/screens/core/core_screen.dart';
+import 'app/screens/login/login_screen.dart';
+import 'app/services/auth.dart';
 import 'constants.dart';
 
 void main() {

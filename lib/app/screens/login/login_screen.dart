@@ -1,13 +1,13 @@
-import 'package:app_todo/services/auth.dart';
-import 'package:app_todo/widgets/rounded_button.dart';
-import 'package:app_todo/widgets/rounded_input_field.dart';
-import 'package:app_todo/widgets/rounded_password_field.dart';
+import 'package:app_todo/app/services/auth.dart';
+import 'package:app_todo/app/widgets/rounded_button.dart';
+import 'package:app_todo/app/widgets/rounded_input_field.dart';
+import 'package:app_todo/app/widgets/rounded_password_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../constants.dart';
+import '../../../constants.dart';
 
 class LoginScreen extends StatefulWidget {
   final FirebaseAuth auth;

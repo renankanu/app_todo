@@ -1,7 +1,7 @@
-import 'package:app_todo/models/todo.dart';
-import 'package:app_todo/services/auth.dart';
-import 'package:app_todo/services/database.dart';
-import 'package:app_todo/widgets/todo_card.dart';
+import 'package:app_todo/app/models/todo.dart';
+import 'package:app_todo/app/services/auth.dart';
+import 'package:app_todo/app/services/database.dart';
+import 'package:app_todo/app/widgets/todo_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';

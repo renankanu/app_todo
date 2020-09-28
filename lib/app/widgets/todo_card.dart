@@ -1,5 +1,5 @@
-import 'package:app_todo/models/todo.dart';
-import 'package:app_todo/services/database.dart';
+import 'package:app_todo/app/models/todo.dart';
+import 'package:app_todo/app/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
