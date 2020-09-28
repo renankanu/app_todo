@@ -1,3 +1,4 @@
+import 'package:app_todo/app/utils/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'app/screens/core/core_screen.dart';
 import 'app/screens/login/login_screen.dart';
 import 'app/services/auth.dart';
-import 'constants.dart';
 
 void main() {
   runApp(App());
@@ -18,10 +18,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
-      ),
+      theme: theme(),
       home: FutureBuilder(
         // Initialize FlutterFire:
         future: Firebase.initializeApp(),

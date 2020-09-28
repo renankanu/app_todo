@@ -1,7 +1,4 @@
-import 'package:app_todo/app/widgets/text_field_container.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
 
 class RoundedPasswordField extends StatelessWidget {
   final TextEditingController controller;
@@ -12,22 +9,11 @@ class RoundedPasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldContainer(
-      child: TextFormField(
-        obscureText: true,
-        controller: controller,
-        decoration: const InputDecoration(
-          hintText: "Password",
-          icon: Icon(
-            Icons.lock,
-            color: kPrimaryColor,
-          ),
-          suffixIcon: Icon(
-            Icons.visibility,
-            color: kPrimaryColor,
-          ),
-          border: InputBorder.none,
-        ),
+    return TextFormField(
+      obscureText: true,
+      controller: controller,
+      decoration: const InputDecoration(
+        hintText: "Password",
       ),
     );
   }

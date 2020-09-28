@@ -5,16 +5,16 @@ const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 
 const kAlgaeGreen = Color(0xFF8FE1A3);
-const kPuertoRico = const Color(0xFF37BFA7);
-const kGreenPea = const Color(0xFF195251);
-const kBostonBlue = const Color(0xFF377BC4);
-const kVictoria = const Color(0xFF544482);
-const kWhite = const Color(0xFFFFFFFF);
-const kBblack = const Color(0xFF000000);
+const kPuertoRico = Color(0xFF37BFA7);
+const kGreenPea = Color(0xFF195251);
+const kBostonBlue = Color(0xFF377BC4);
+const kVictoria = Color(0xFF544482);
+const kWhite = Color(0xFFFFFFFF);
+const kBblack = Color(0xFF000000);
 const kTextColor = Color(0xFF000000);
 const kFaceColor = Color(0xFF3b5998);
 const kGoogleColor = Color(0xFFDB4437);
-const KathensGray = Color(0xFFECEEF1);
+const kAthensGray = Color(0xFFECEEF1);
 
 const kAnimationDuration = Duration(milliseconds: 400);
 
