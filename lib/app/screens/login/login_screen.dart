@@ -1,3 +1,5 @@
+import 'package:app_todo/app/screens/login/widget/no_account_text.dart';
+import 'package:app_todo/app/screens/login/widget/social_icon.dart';
 import 'package:app_todo/app/services/auth.dart';
 import 'package:app_todo/app/utils/size_config.dart';
 import 'package:app_todo/app/widgets/rounded_button.dart';
@@ -41,42 +43,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     "assets/images/login.svg",
                     height: size.height * 0.20,
                   ),
-                  const SizedBox(
-                    height: 32,
-                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.03),
                   RoundedInputField(
                     key: const ValueKey("username"),
                     hintText: "Email",
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedPasswordField(
                     key: const ValueKey("password"),
                     controller: _passwordController,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Expanded(
-                        child: Divider(thickness: 1, color: kPuertoRico),
-                      ),
-                      const SizedBox(width: 10),
-                      const Text(
-                        'or',
-                        style: TextStyle(
-                            color: kPuertoRico, fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(width: 10),
-                      const Expanded(
-                        child: Divider(thickness: 1, color: kPuertoRico),
-                      ),
-                    ],
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedButton(
@@ -100,6 +77,46 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                     },
                   ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.02),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Expanded(
+                        child: Divider(thickness: 1, color: kPuertoRico),
+                      ),
+                      SizedBox(width: SizeConfig.screenWidth * 0.02),
+                      const Text(
+                        'or',
+                        style: TextStyle(
+                            color: kPuertoRico, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(width: SizeConfig.screenWidth * 0.02),
+                      const Expanded(
+                        child: Divider(thickness: 1, color: kPuertoRico),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.04),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SocalIcon(
+                        iconSrc: "assets/icons/google.svg",
+                        press: () {},
+                      ),
+                      SocalIcon(
+                        iconSrc: "assets/icons/facebook.svg",
+                        press: () {},
+                      ),
+                      SocalIcon(
+                        iconSrc: "assets/icons/apple.svg",
+                        press: () {},
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.02),
+                  const NoAccountText(),
+                  SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedButton(
                     key: const ValueKey("createAccount"),
                     text: "Create Account",
