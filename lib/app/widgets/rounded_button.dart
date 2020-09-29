@@ -1,3 +1,4 @@
+import 'package:app_todo/app/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -16,21 +17,18 @@ class RoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        width: double.infinity,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: FlatButton(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-            color: color,
-            onPressed: press,
-            child: Text(
-              text,
-              style: TextStyle(color: textColor),
-            ),
+    return SizedBox(
+      width: double.infinity,
+      height: 46,
+      child: FlatButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        color: color,
+        onPressed: press,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: getProportionateScreenWidth(14),
+            color: textColor,
           ),
         ),
       ),
