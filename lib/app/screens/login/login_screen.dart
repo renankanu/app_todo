@@ -39,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text("Kanu ToDo"),
                   SvgPicture.asset(
                     "assets/images/login.svg",
                     height: size.height * 0.20,

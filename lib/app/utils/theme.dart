@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    fontFamily: "Lato",
+    fontFamily: "Poppins",
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),
     cupertinoOverrideTheme: const CupertinoThemeData(
