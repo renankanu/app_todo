@@ -5,8 +5,15 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('999999999'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Register',
+        ),
+      ),
+      body: const Center(
+        child: Text('sss'),
+      ),
     );
   }
 }

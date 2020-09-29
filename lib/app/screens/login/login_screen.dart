@@ -82,17 +82,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Expanded(
-                        child: Divider(thickness: 1, color: kPuertoRico),
+                        child: Divider(thickness: 1, color: kMatisse),
                       ),
                       SizedBox(width: SizeConfig.screenWidth * 0.02),
                       const Text(
                         'or',
                         style: TextStyle(
-                            color: kPuertoRico, fontWeight: FontWeight.w500),
+                            color: kMatisse, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(width: SizeConfig.screenWidth * 0.02),
                       const Expanded(
-                        child: Divider(thickness: 1, color: kPuertoRico),
+                        child: Divider(thickness: 1, color: kMatisse),
                       ),
                     ],
                   ),
@@ -117,29 +117,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
                   const NoAccountText(),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
-                  RoundedButton(
-                    key: const ValueKey("createAccount"),
-                    text: "Create Account",
-                    color: kPrimaryLightColor,
-                    textColor: Colors.black,
-                    press: () async {
-                      final String returnValue =
-                          await Auth(auth: widget.auth).createAccount(
-                        email: _emailController.text,
-                        password: _passwordController.text,
-                      );
-                      if (returnValue == "Success") {
-                        _emailController.clear();
-                        _passwordController.clear();
-                      } else {
-                        Scaffold.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(returnValue),
-                          ),
-                        );
-                      }
-                    },
-                  )
                 ],
               ),
             );

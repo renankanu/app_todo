@@ -21,13 +21,13 @@ class SocalIcon extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           border: Border.all(
-            color: kPrimaryColor,
+            color: kLuckyPoint,
           ),
           shape: BoxShape.circle,
         ),
         child: SvgPicture.asset(
           iconSrc,
-          color: kPrimaryColor,
+          color: kLuckyPoint,
           height: 20,
           width: 20,
         ),

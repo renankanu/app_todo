@@ -9,9 +9,9 @@ ThemeData theme() {
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),
     cupertinoOverrideTheme: const CupertinoThemeData(
-      primaryColor: kGreenPea,
+      primaryColor: kMatisse,
     ),
-    cursorColor: kGreenPea,
+    cursorColor: kMatisse,
     inputDecorationTheme: inputDecorationTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
@@ -20,22 +20,22 @@ ThemeData theme() {
 InputDecorationTheme inputDecorationTheme() {
   final OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
-    borderSide: const BorderSide(color: kGreenPea, width: 0.7),
+    borderSide: const BorderSide(color: kMatisse, width: 0.7),
   );
   return InputDecorationTheme(
-    labelStyle: const TextStyle(color: kGreenPea),
+    labelStyle: const TextStyle(color: kMatisse),
     contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
     border: outlineInputBorder,
-    hintStyle: const TextStyle(color: kGreenPea),
+    hintStyle: const TextStyle(color: kMatisse),
   );
 }
 
 TextTheme textTheme() {
   return const TextTheme(
-    bodyText1: TextStyle(color: kTextColor),
-    bodyText2: TextStyle(color: kTextColor),
+    bodyText1: TextStyle(color: Colors.black),
+    bodyText2: TextStyle(color: Colors.black),
   );
 }
 
@@ -45,9 +45,9 @@ AppBarTheme appBarTheme() {
     elevation: 0,
     centerTitle: true,
     brightness: Brightness.light,
-    iconTheme: IconThemeData(color: kGreenPea),
+    iconTheme: IconThemeData(color: kMatisse),
     textTheme: TextTheme(
-      headline6: TextStyle(color: kGreenPea, fontSize: 18),
+      headline6: TextStyle(color: kMatisse, fontSize: 18),
     ),
   );
 }

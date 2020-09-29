@@ -1,20 +1,11 @@
 import 'package:app_todo/app/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Color(0xFF6F35A5);
-const kPrimaryLightColor = Color(0xFFF1E6FF);
-
-const kAlgaeGreen = Color(0xFF8FE1A3);
-const kPuertoRico = Color(0xFF37BFA7);
-const kGreenPea = Color(0xFF195251);
-const kBostonBlue = Color(0xFF377BC4);
-const kVictoria = Color(0xFF544482);
+const kLuckyPoint = Color(0xFF163172);
+const kMatisse = Color(0xFF1E56A0);
+const kLinkWater = Color(0xFFD6E4F0);
+const kWildSand = Color(0xFFF6F6F6);
 const kWhite = Color(0xFFFFFFFF);
-const kBblack = Color(0xFF000000);
-const kTextColor = Color(0xFF000000);
-const kFaceColor = Color(0xFF3b5998);
-const kGoogleColor = Color(0xFFDB4437);
-const kAthensGray = Color(0xFFECEEF1);
 
 const kAnimationDuration = Duration(milliseconds: 400);
 
@@ -48,6 +39,6 @@ final otpInputDecoration = InputDecoration(
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
-    borderSide: BorderSide(color: kTextColor),
+    borderSide: BorderSide(color: Colors.black),
   );
 }
