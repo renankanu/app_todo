@@ -39,10 +39,16 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Kanu ToDo"),
+                  const Text(
+                    "Kanu ToDo",
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: kLuckyPoint,
+                    ),
+                  ),
                   SvgPicture.asset(
                     "assets/images/login.svg",
-                    height: size.height * 0.20,
+                    height: size.height * 0.15,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.03),
                   RoundedInputField(
