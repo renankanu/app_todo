@@ -56,6 +56,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _passwordController,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                        // onTap: () => Navigator.pushNamed(
+                        //     context, ForgotPasswordScreen.routeName),
+                        child: const Text(
+                          "Forgot Password?",
+                          style: TextStyle(
+                              color: kMatisse, fontWeight: FontWeight.w700),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.04),
                   RoundedButton(
                     key: const ValueKey("signIn"),
                     text: "Login",
