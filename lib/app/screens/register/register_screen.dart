@@ -36,12 +36,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
           if (snapshot.connectionState == ConnectionState.done) {
             return Scaffold(
               appBar: AppBar(),
-              body: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Builder(
-                  builder: (BuildContext context) {
-                    return SingleChildScrollView(
-                      child: Column(
+              body: Container(
+                height: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      return Column(
                         children: [
                           const Text(
                             'Register',
@@ -67,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             hintText: "Confirm Password",
                             controller: _confirmPasswordController,
                           ),
-                          SizedBox(height: SizeConfig.screenHeight * 0.04),
+                          Expanded(child: Container()),
                           RoundedButton(
                             text: "Register",
                             press: () async {
@@ -89,10 +90,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               }
                             },
                           ),
+                          SizedBox(height: SizeConfig.screenHeight * 0.02),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Already have an account? ",
+                                style: TextStyle(fontSize: 14),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  "Login",
+                                  style:
+                                      TextStyle(fontSize: 14, color: kMatisse),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: SizeConfig.screenHeight * 0.02),
                         ],
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
             );
