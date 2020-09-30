@@ -18,6 +18,8 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           SizedBox(height: SizeConfig.screenHeight * 0.02),
                           RoundedPasswordField(
+                            hintText: "Password",
                             controller: _passwordController,
+                          ),
+                          SizedBox(height: SizeConfig.screenHeight * 0.02),
+                          RoundedPasswordField(
+                            hintText: "Confirm Password",
+                            controller: _confirmPasswordController,
                           ),
                           SizedBox(height: SizeConfig.screenHeight * 0.04),
                           RoundedButton(
