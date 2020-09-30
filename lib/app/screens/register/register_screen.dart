@@ -35,8 +35,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
             return Scaffold(
               appBar: AppBar(),
               body: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Builder(builder: (BuildContext context) {
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Builder(
+                  builder: (BuildContext context) {
                     return SingleChildScrollView(
                       child: Column(
                         children: [
@@ -70,6 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               if (returnValue == "Success") {
                                 _emailController.clear();
                                 _passwordController.clear();
+                                Navigator.pop(context);
                               } else {
                                 Scaffold.of(context).showSnackBar(
                                   SnackBar(
@@ -82,7 +84,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ],
                       ),
                     );
-                  })),
+                  },
+                ),
+              ),
             );
           }
           return const Scaffold(
