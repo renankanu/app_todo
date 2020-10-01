@@ -1,3 +1,4 @@
+import 'package:app_todo/app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:app_todo/app/screens/login/widget/no_account_text.dart';
 import 'package:app_todo/app/screens/login/widget/social_icon.dart';
 import 'package:app_todo/app/services/auth.dart';
@@ -69,8 +70,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       GestureDetector(
-                        // onTap: () => Navigator.pushNamed(
-                        //     context, ForgotPasswordScreen.routeName),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ForgotPasswordScreen()),
+                          );
+                        },
                         child: const Text(
                           "Forgot Password?",
                           style: TextStyle(
