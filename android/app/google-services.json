@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1070819120848-78el45blasboi1t2b1h3njvib2262jad.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.renankanu.app_todo",
+            "certificate_hash": "909415ea6824734597ec611d6b04b6ac9921b131"
+          }
+        },
+        {
           "client_id": "1070819120848-i5dlq9b7kdhfka62cbrh1imdib3j2dra.apps.googleusercontent.com",
           "client_type": 3
         }

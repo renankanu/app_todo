@@ -11,14 +11,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../constants.dart';
 
 class LoginScreen extends StatefulWidget {
   final FirebaseAuth auth;
   final FirebaseFirestore firestore;
+  final GoogleSignIn googleSignIn;
 
-  const LoginScreen({Key key, @required this.auth, @required this.firestore})
+  const LoginScreen(
+      {Key key,
+      @required this.auth,
+      @required this.firestore,
+      @required this.googleSignIn})
       : super(key: key);
 
   @override
@@ -133,7 +139,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       SocalIcon(
                         iconSrc: "assets/icons/google.svg",
-                        press: () {},
+                        press: () {
+                          Auth(
+                                  auth: widget.auth,
+                                  googleSignIn: widget.googleSignIn)
+                              .signInWithGoogle();
+                        },
                       ),
                       SocalIcon(
                         iconSrc: "assets/icons/facebook.svg",

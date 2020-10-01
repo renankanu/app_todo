@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'app/screens/core/core_screen.dart';
 import 'app/screens/login/login_screen.dart';
@@ -57,6 +58,8 @@ class Root extends StatefulWidget {
 class _RootState extends State<Root> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -67,6 +70,7 @@ class _RootState extends State<Root> {
             return LoginScreen(
               auth: _auth,
               firestore: _firestore,
+              googleSignIn: _googleSignIn,
             );
           } else {
             return CoreScreen(
