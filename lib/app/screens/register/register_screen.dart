@@ -1,9 +1,4 @@
-import 'package:app_todo/app/services/auth.dart';
-import 'package:app_todo/app/utils/size_config.dart';
-import 'package:app_todo/app/widgets/rounded_button.dart';
-import 'package:app_todo/app/widgets/rounded_input_field.dart';
-import 'package:app_todo/app/widgets/rounded_password_field.dart';
-import 'package:app_todo/constants.dart';
+import 'package:app_todo/app/screens/register/widget/body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -34,89 +29,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
             );
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            return Scaffold(
-              appBar: AppBar(),
-              body: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Builder(
-                    builder: (BuildContext context) {
-                      return Column(
-                        children: [
-                          const Text(
-                            'Register',
-                            style: TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w500,
-                              color: kMatisse,
-                            ),
-                          ),
-                          SizedBox(height: SizeConfig.screenHeight * 0.03),
-                          RoundedInputField(
-                            hintText: "Email",
-                            controller: _emailController,
-                            keyboardType: TextInputType.emailAddress,
-                          ),
-                          SizedBox(height: SizeConfig.screenHeight * 0.02),
-                          RoundedPasswordField(
-                            hintText: "Password",
-                            controller: _passwordController,
-                          ),
-                          SizedBox(height: SizeConfig.screenHeight * 0.02),
-                          RoundedPasswordField(
-                            hintText: "Confirm Password",
-                            controller: _confirmPasswordController,
-                          ),
-                          Expanded(child: Container()),
-                          RoundedButton(
-                            text: "Register",
-                            press: () async {
-                              final String returnValue =
-                                  await Auth(auth: _auth).createAccount(
-                                email: _emailController.text,
-                                password: _passwordController.text,
-                              );
-                              if (returnValue == "Success") {
-                                _emailController.clear();
-                                _passwordController.clear();
-                                Navigator.pop(context);
-                              } else {
-                                Scaffold.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(returnValue),
-                                  ),
-                                );
-                              }
-                            },
-                          ),
-                          SizedBox(height: SizeConfig.screenHeight * 0.02),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                "Already have an account? ",
-                                style: TextStyle(fontSize: 14),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text(
-                                  "Login",
-                                  style:
-                                      TextStyle(fontSize: 14, color: kMatisse),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: SizeConfig.screenHeight * 0.02),
-                        ],
-                      );
-                    },
-                  ),
-                ),
-              ),
-            );
+            return Body(
+                emailController: _emailController,
+                passwordController: _passwordController,
+                confirmPasswordController: _confirmPasswordController,
+                auth: _auth);
           }
           return const Scaffold(
             body: Center(
