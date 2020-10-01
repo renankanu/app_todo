@@ -36,8 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           if (snapshot.connectionState == ConnectionState.done) {
             return Scaffold(
               appBar: AppBar(),
-              body: Container(
-                height: double.infinity,
+              body: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Builder(
