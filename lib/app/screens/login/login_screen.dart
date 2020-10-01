@@ -1,6 +1,7 @@
 import 'package:app_todo/app/screens/login/widget/no_account_text.dart';
 import 'package:app_todo/app/screens/login/widget/social_icon.dart';
 import 'package:app_todo/app/services/auth.dart';
+import 'package:app_todo/app/utils/images.dart';
 import 'package:app_todo/app/utils/size_config.dart';
 import 'package:app_todo/app/widgets/rounded_button.dart';
 import 'package:app_todo/app/widgets/rounded_input_field.dart';
@@ -47,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SvgPicture.asset(
-                    "assets/images/login.svg",
+                    Images.login,
                     height: size.height * 0.15,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.03),

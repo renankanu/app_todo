@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
+
 class RoundedInputField extends StatelessWidget {
   final String hintText;
   final TextInputType keyboardType;
@@ -17,6 +19,9 @@ class RoundedInputField extends StatelessWidget {
       controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(
+        border: outlineInputBorder(),
+        focusedBorder: outlineInputBorder(),
+        enabledBorder: outlineInputBorder(),
         hintText: hintText,
       ),
     );

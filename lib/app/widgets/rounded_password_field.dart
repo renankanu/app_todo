@@ -1,3 +1,4 @@
+import 'package:app_todo/app/utils/my_icons.dart';
 import 'package:app_todo/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,11 +26,13 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return TextFormField(
       obscureText: !_passwordVisible,
       controller: widget.controller,
       decoration: InputDecoration(
+        border: outlineInputBorder(),
+        focusedBorder: outlineInputBorder(),
+        enabledBorder: outlineInputBorder(),
         hintText: widget.hintText,
         suffixIcon: GestureDetector(
           onTap: () {
@@ -43,14 +46,14 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
               ? Padding(
                   padding: const EdgeInsets.all(14.0),
                   child: SvgPicture.asset(
-                    "assets/icons/show.svg",
+                    MyIcons.show,
                     color: kMatisse,
                   ),
                 )
               : Padding(
                   padding: const EdgeInsets.all(14.0),
                   child: SvgPicture.asset(
-                    "assets/icons/hide.svg",
+                    MyIcons.hide,
                     color: kMatisse,
                   ),
                 ),
