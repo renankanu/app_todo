@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    fontFamily: "Poppins",
-    appBarTheme: appBarTheme(),
-    textTheme: textTheme(),
-    cupertinoOverrideTheme: const CupertinoThemeData(
-      primaryColor: kMatisse,
-    ),
-    cursorColor: kMatisse,
-    inputDecorationTheme: inputDecorationTheme(),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-  );
+      scaffoldBackgroundColor: Colors.white,
+      fontFamily: "Poppins",
+      appBarTheme: appBarTheme(),
+      textTheme: textTheme(),
+      cupertinoOverrideTheme: const CupertinoThemeData(
+        primaryColor: kMatisse,
+      ),
+      cursorColor: kMatisse,
+      inputDecorationTheme: inputDecorationTheme(),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      unselectedWidgetColor: kLuckyPoint);
 }
 
 InputDecorationTheme inputDecorationTheme() {

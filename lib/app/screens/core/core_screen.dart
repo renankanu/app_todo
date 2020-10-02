@@ -95,7 +95,7 @@ class _CoreScreenState extends State<CoreScreen> {
                 if (snapshot.connectionState == ConnectionState.active) {
                   if (snapshot.data.isEmpty) {
                     return const Center(
-                      child: Text("You don't have any unfinished Todos"),
+                      child: Text("You don't have any unfinished Todos 😁"),
                     );
                   }
                   return ListView.builder(

@@ -1,5 +1,6 @@
 import 'package:app_todo/app/models/todo.dart';
 import 'package:app_todo/app/services/database.dart';
+import 'package:app_todo/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class _TodoCardState extends State<TodoCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: kWildSand,
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -29,12 +31,14 @@ class _TodoCardState extends State<TodoCard> {
                 widget.todo.content,
                 style: const TextStyle(
                   fontSize: 15,
-                  fontWeight: FontWeight.bold,
+                  color: kLuckyPoint,
                 ),
               ),
             ),
             Checkbox(
               value: widget.todo.done,
+              checkColor: Colors.yellowAccent, // color of tick Mark
+              activeColor: Colors.red,
               onChanged: (newValue) {
                 setState(() {});
                 Database(firestore: widget.firestore).updateTodo(
