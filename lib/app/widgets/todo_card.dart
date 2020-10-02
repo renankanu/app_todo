@@ -37,8 +37,6 @@ class _TodoCardState extends State<TodoCard> {
             ),
             Checkbox(
               value: widget.todo.done,
-              checkColor: Colors.yellowAccent, // color of tick Mark
-              activeColor: Colors.red,
               onChanged: (newValue) {
                 setState(() {});
                 Database(firestore: widget.firestore).updateTodo(
