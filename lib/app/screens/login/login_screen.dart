@@ -146,14 +146,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               .signInWithGoogle();
                         },
                       ),
-                      SocalIcon(
-                        iconSrc: "assets/icons/facebook.svg",
-                        press: () {},
-                      ),
-                      SocalIcon(
-                        iconSrc: "assets/icons/apple.svg",
-                        press: () {},
-                      ),
+                      // SocalIcon(
+                      //   iconSrc: "assets/icons/facebook.svg",
+                      //   press: () {},
+                      // ),
+                      // SocalIcon(
+                      //   iconSrc: "assets/icons/apple.svg",
+                      //   press: () {},
+                      // ),
                     ],
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
