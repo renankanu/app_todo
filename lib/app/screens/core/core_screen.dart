@@ -40,14 +40,14 @@ class _CoreScreenState extends State<CoreScreen> {
             height: 20,
           ),
           const Text(
-            "Add Todo Here:",
+            "Todo",
+            textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
             ),
           ),
           Card(
-            margin: const EdgeInsets.all(20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
@@ -83,7 +83,7 @@ class _CoreScreenState extends State<CoreScreen> {
             "Your Todos",
             style: TextStyle(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
             ),
           ),
           Expanded(
