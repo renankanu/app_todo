@@ -40,24 +40,16 @@ class _CoreScreenState extends State<CoreScreen> {
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            "Todo",
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      key: const ValueKey("addField"),
-                      controller: _todoController,
-                      decoration: InputDecoration(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    key: const ValueKey("addField"),
+                    controller: _todoController,
+                    decoration: InputDecoration(
+                      hintText: "Your task...",
                         suffixIcon: GestureDetector(
                           onTap: (){
                             if (_todoController.text != "") {
@@ -71,11 +63,10 @@ class _CoreScreenState extends State<CoreScreen> {
                           },
                           child: const Icon(Icons.add, color: kLuckyPoint,),
                         )
-                      ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
