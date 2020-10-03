@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         },
                         child: const Text(
-                          "Forgot Password?",
+                          "Esqueceu a Senha?",
                           style: TextStyle(
                               color: kMatisse, fontWeight: FontWeight.w700),
                         ),
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: SizeConfig.screenHeight * 0.04),
                   RoundedButton(
                     key: const ValueKey("signIn"),
-                    text: "Login",
+                    text: "Entrar",
                     press: () async {
                       final String returnValue =
                           await Auth(auth: widget.auth).signIn(
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       SizedBox(width: SizeConfig.screenWidth * 0.02),
                       const Text(
-                        'or',
+                        'ou',
                         style: TextStyle(
                             color: kMatisse, fontWeight: FontWeight.w500),
                       ),

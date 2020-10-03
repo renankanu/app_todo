@@ -54,7 +54,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             return Column(
               children: [
                 const Text(
-                  "Forgot Password",
+                  "Esqueceu a Senha",
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.w500,
@@ -63,7 +63,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
                 const Text(
-                  "We will send a link in your email to reset your password",
+                  "Enviaremos um link em seu e-mail para redefinir sua senha",
                   style: TextStyle(color: kLuckyPoint),
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
@@ -74,7 +74,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.06),
                 RoundedButton(
-                  text: "Send me the link ",
+                  text: "Me envie o link",
                   press: () async {
                     await validEmail(context);
                   },
