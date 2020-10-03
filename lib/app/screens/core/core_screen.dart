@@ -72,13 +72,6 @@ class _CoreScreenState extends State<CoreScreen> {
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            "Your Todos",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
           Expanded(
             child: StreamBuilder(
               stream: Database(firestore: widget.firestore)
@@ -87,9 +80,7 @@ class _CoreScreenState extends State<CoreScreen> {
                   AsyncSnapshot<List<TodoModel>> snapshot) {
                 if (snapshot.connectionState == ConnectionState.active) {
                   if (snapshot.data.isEmpty) {
-                    return const Center(
-                      child: Text("You don't have any unfinished Todos 😁"),
-                    );
+                    return const Text("You don't have any unfinished Todos 😁");
                   }
                   return ListView.builder(
                     itemCount: snapshot.data.length,
