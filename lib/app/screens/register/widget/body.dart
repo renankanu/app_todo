@@ -64,7 +64,7 @@ class Body extends StatelessWidget {
               return Column(
                 children: [
                   const Text(
-                    'Register',
+                    'Cadastro',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w500,
@@ -79,17 +79,17 @@ class Body extends StatelessWidget {
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedPasswordField(
-                    hintText: "Password",
+                    hintText: "Senha",
                     controller: _passwordController,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedPasswordField(
-                    hintText: "Confirm Password",
+                    hintText: "Confire a Senha",
                     controller: _confirmPasswordController,
                   ),
                   Expanded(child: Container()),
                   RoundedButton(
-                    text: "Register",
+                    text: "Cadastro",
                     press: () async {
                       await validPassword(context);
                     },
@@ -99,7 +99,7 @@ class Body extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Already have an account? ",
+                        "Já possui uma conta? ",
                         style: TextStyle(fontSize: 14),
                       ),
                       GestureDetector(

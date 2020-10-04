@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedPasswordField(
                     key: const ValueKey("password"),
-                    hintText: "Password",
+                    hintText: "Senha",
                     controller: _passwordController,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),

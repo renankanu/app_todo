@@ -49,20 +49,23 @@ class _CoreScreenState extends State<CoreScreen> {
                     key: const ValueKey("addField"),
                     controller: _todoController,
                     decoration: InputDecoration(
-                      hintText: "Your task...",
-                        suffixIcon: GestureDetector(
-                          onTap: (){
-                            if (_todoController.text != "") {
-                              setState(() {
-                                Database(firestore: widget.firestore).addTodo(
-                                    uid: widget.auth.currentUser.uid,
-                                    content: _todoController.text);
-                                _todoController.clear();
-                              });
-                            }
-                          },
-                          child: const Icon(Icons.add, color: kLuckyPoint,),
-                        )
+                      hintText: "Ex: fazer café...",
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          if (_todoController.text != "") {
+                            setState(() {
+                              Database(firestore: widget.firestore).addTodo(
+                                  uid: widget.auth.currentUser.uid,
+                                  content: _todoController.text);
+                              _todoController.clear();
+                            });
+                          }
+                        },
+                        child: const Icon(
+                          Icons.add,
+                          color: kLuckyPoint,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -80,7 +83,7 @@ class _CoreScreenState extends State<CoreScreen> {
                   AsyncSnapshot<List<TodoModel>> snapshot) {
                 if (snapshot.connectionState == ConnectionState.active) {
                   if (snapshot.data.isEmpty) {
-                    return const Text("You don't have any unfinished Todos 😁");
+                    return const Text("Nenhum TODO para fazer 😁");
                   }
                   return ListView.builder(
                     itemCount: snapshot.data.length,

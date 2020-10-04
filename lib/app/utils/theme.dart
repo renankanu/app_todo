@@ -28,7 +28,7 @@ InputDecorationTheme inputDecorationTheme() {
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
     border: outlineInputBorder,
-    hintStyle: const TextStyle(color: kMatisse),
+    hintStyle: const TextStyle(color: kAzure),
   );
 }
 
