@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../constants.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({
     Key key,
     @required TextEditingController emailController,
@@ -27,29 +27,48 @@ class Body extends StatelessWidget {
   final TextEditingController _confirmPasswordController;
   final FirebaseAuth _auth;
 
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  bool _isLoading = false;
+
+  void changStateIsloading({bool isloading}) {
+    setState(() {
+      _isLoading = isloading;
+    });
+  }
+
   Future validPassword(BuildContext context) async {
-    if (_emailController.text.isEmpty) {
+    if (widget._emailController.text.isEmpty) {
       Utils().showSnack(context, "Informe o email.", kPersimmon);
+      changStateIsloading(isloading: false);
       return;
     }
-    if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
+    if (!emailValidatorRegExp.hasMatch(widget._emailController.text)) {
       Utils().showSnack(context, "Informe um email válido.", kPersimmon);
+      changStateIsloading(isloading: false);
       return;
     }
-    if (_passwordController.text != _confirmPasswordController.text) {
+    if (widget._passwordController.text !=
+        widget._confirmPasswordController.text) {
       Utils().showSnack(context, "As senhas não coincidem.", kPersimmon);
+      changStateIsloading(isloading: false);
       return;
     }
-    final String returnValue = await Auth(auth: _auth).createAccount(
-      email: _emailController.text,
-      password: _passwordController.text,
+    final String returnValue = await Auth(auth: widget._auth).createAccount(
+      email: widget._emailController.text,
+      password: widget._passwordController.text,
     );
     if (returnValue == "Success") {
-      _emailController.clear();
-      _passwordController.clear();
+      widget._emailController.clear();
+      widget._passwordController.clear();
+      changStateIsloading(isloading: false);
       Navigator.pop(context);
     } else {
       Utils().showSnack(context, returnValue, kPersimmon);
+      changStateIsloading(isloading: false);
     }
   }
 
@@ -75,23 +94,25 @@ class Body extends StatelessWidget {
                   SizedBox(height: SizeConfig.screenHeight * 0.03),
                   RoundedInputField(
                     hintText: "Email",
-                    controller: _emailController,
+                    controller: widget._emailController,
                     keyboardType: TextInputType.emailAddress,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedPasswordField(
                     hintText: "Senha",
-                    controller: _passwordController,
+                    controller: widget._passwordController,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.02),
                   RoundedPasswordField(
                     hintText: "Confire a Senha",
-                    controller: _confirmPasswordController,
+                    controller: widget._confirmPasswordController,
                   ),
                   Expanded(child: Container()),
                   RoundedButton(
+                    isLoading: _isLoading,
                     text: "Cadastro",
                     press: () async {
+                      changStateIsloading(isloading: true);
                       await validPassword(context);
                     },
                   ),
