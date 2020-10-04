@@ -30,7 +30,13 @@ class Auth {
       );
       return "Success";
     } on FirebaseAuthException catch (e) {
-      return e.message;
+      if (e.code == 'user-not-found') {
+        return 'Não há registro de usuário correspondente a este identificador. O usuário pode ter sido excluído.';
+      }
+      if (e.code == 'wrong-password') {
+        return 'A senha é inválida ou o usuário não possui uma senha.';
+      }
+      return 'Opps, não foi possível completar o login. 😕';
     } catch (e) {
       rethrow;
     }
