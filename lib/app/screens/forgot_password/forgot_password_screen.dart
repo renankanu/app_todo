@@ -17,7 +17,7 @@ class ForgotPasswordScreen extends StatelessWidget {
       if (_emailController.text.isEmpty) {
         Scaffold.of(context).showSnackBar(
           const SnackBar(
-            content: Text("Please enter your email"),
+            content: Text("Informe o email."),
           ),
         );
         return;
@@ -25,7 +25,7 @@ class ForgotPasswordScreen extends StatelessWidget {
       if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
         Scaffold.of(context).showSnackBar(
           const SnackBar(
-            content: Text("Please enter valid email"),
+            content: Text("Informe um email válido."),
           ),
         );
         return;
@@ -34,12 +34,14 @@ class ForgotPasswordScreen extends StatelessWidget {
         await FirebaseAuth.instance
             .sendPasswordResetEmail(email: _emailController.text);
         Navigator.pop(context);
-      } on Exception catch (error) {
-        Scaffold.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Opps! 😕"),
-          ),
-        );
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'user-not-found') {
+          showSnack(context, "Usuário não encontrado.");
+          return;
+        }
+        showSnack(context, "Opps, não foi possível enviar o link. 😕");
+      } catch (e) {
+        rethrow;
       }
     }
 
@@ -83,6 +85,14 @@ class ForgotPasswordScreen extends StatelessWidget {
             );
           }),
         ),
+      ),
+    );
+  }
+
+  void showSnack(BuildContext context, String message) {
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
       ),
     );
   }
