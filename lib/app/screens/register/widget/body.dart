@@ -29,15 +29,15 @@ class Body extends StatelessWidget {
 
   Future validPassword(BuildContext context) async {
     if (_emailController.text.isEmpty) {
-      Utils().showSnack(context, "Informe o email.");
+      Utils().showSnack(context, "Informe o email.", kPersimmon);
       return;
     }
     if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
-      Utils().showSnack(context, "Informe um email válido.");
+      Utils().showSnack(context, "Informe um email válido.", kPersimmon);
       return;
     }
     if (_passwordController.text != _confirmPasswordController.text) {
-      Utils().showSnack(context, "As senhas não coincidem.");
+      Utils().showSnack(context, "As senhas não coincidem.", kPersimmon);
       return;
     }
     final String returnValue = await Auth(auth: _auth).createAccount(
@@ -49,7 +49,7 @@ class Body extends StatelessWidget {
       _passwordController.clear();
       Navigator.pop(context);
     } else {
-      Utils().showSnack(context, returnValue);
+      Utils().showSnack(context, returnValue, kPersimmon);
     }
   }
 

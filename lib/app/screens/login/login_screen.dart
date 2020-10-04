@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         _emailController.clear();
                         _passwordController.clear();
                       } else {
-                        Utils().showSnack(context, returnValue);
+                        Utils().showSnack(context, returnValue, kPersimmon);
                       }
                     },
                   ),

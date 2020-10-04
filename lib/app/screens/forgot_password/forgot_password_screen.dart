@@ -16,11 +16,11 @@ class ForgotPasswordScreen extends StatelessWidget {
 
     Future validEmail(BuildContext context) async {
       if (_emailController.text.isEmpty) {
-        Utils().showSnack(context, "Informe o email.");
+        Utils().showSnack(context, "Informe o email.", kPersimmon);
         return;
       }
       if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
-        Utils().showSnack(context, "Informe um email válido.");
+        Utils().showSnack(context, "Informe um email válido.", kPersimmon);
         return;
       }
       try {
@@ -29,10 +29,11 @@ class ForgotPasswordScreen extends StatelessWidget {
         Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
-          Utils().showSnack(context, "Usuário não encontrado.");
+          Utils().showSnack(context, "Usuário não encontrado.", kPersimmon);
           return;
         }
-        Utils().showSnack(context, "Opps, não foi possível enviar o link. 😕");
+        Utils().showSnack(
+            context, "Opps, não foi possível enviar o link. 😕", kPersimmon);
       } catch (e) {
         rethrow;
       }
