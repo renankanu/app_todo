@@ -4,6 +4,7 @@ import 'package:app_todo/app/screens/login/widget/social_icon.dart';
 import 'package:app_todo/app/services/auth.dart';
 import 'package:app_todo/app/utils/images.dart';
 import 'package:app_todo/app/utils/size_config.dart';
+import 'package:app_todo/app/utils/utils.dart';
 import 'package:app_todo/app/widgets/rounded_button.dart';
 import 'package:app_todo/app/widgets/rounded_input_field.dart';
 import 'package:app_todo/app/widgets/rounded_password_field.dart';
@@ -106,11 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         _emailController.clear();
                         _passwordController.clear();
                       } else {
-                        Scaffold.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(returnValue),
-                          ),
-                        );
+                        Utils().showSnack(context, returnValue);
                       }
                     },
                   ),

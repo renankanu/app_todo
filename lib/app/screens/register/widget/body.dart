@@ -1,5 +1,6 @@
 import 'package:app_todo/app/services/auth.dart';
 import 'package:app_todo/app/utils/size_config.dart';
+import 'package:app_todo/app/utils/utils.dart';
 import 'package:app_todo/app/widgets/rounded_button.dart';
 import 'package:app_todo/app/widgets/rounded_input_field.dart';
 import 'package:app_todo/app/widgets/rounded_password_field.dart';
@@ -28,27 +29,15 @@ class Body extends StatelessWidget {
 
   Future validPassword(BuildContext context) async {
     if (_emailController.text.isEmpty) {
-      Scaffold.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Informe o email."),
-        ),
-      );
+      Utils().showSnack(context, "Informe o email.");
       return;
     }
     if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
-      Scaffold.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Informe um email válido."),
-        ),
-      );
+      Utils().showSnack(context, "Informe um email válido.");
       return;
     }
     if (_passwordController.text != _confirmPasswordController.text) {
-      Scaffold.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("As senhas não coincidem."),
-        ),
-      );
+      Utils().showSnack(context, "As senhas não coincidem.");
       return;
     }
     final String returnValue = await Auth(auth: _auth).createAccount(
@@ -60,11 +49,7 @@ class Body extends StatelessWidget {
       _passwordController.clear();
       Navigator.pop(context);
     } else {
-      Scaffold.of(context).showSnackBar(
-        SnackBar(
-          content: Text(returnValue),
-        ),
-      );
+      Utils().showSnack(context, returnValue);
     }
   }
 

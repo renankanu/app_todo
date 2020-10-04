@@ -1,4 +1,5 @@
 import 'package:app_todo/app/utils/size_config.dart';
+import 'package:app_todo/app/utils/utils.dart';
 import 'package:app_todo/app/widgets/rounded_button.dart';
 import 'package:app_todo/app/widgets/rounded_input_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,19 +16,11 @@ class ForgotPasswordScreen extends StatelessWidget {
 
     Future validEmail(BuildContext context) async {
       if (_emailController.text.isEmpty) {
-        Scaffold.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Informe o email."),
-          ),
-        );
+        Utils().showSnack(context, "Informe o email.");
         return;
       }
       if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
-        Scaffold.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Informe um email válido."),
-          ),
-        );
+        Utils().showSnack(context, "Informe um email válido.");
         return;
       }
       try {
@@ -36,10 +29,10 @@ class ForgotPasswordScreen extends StatelessWidget {
         Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
-          showSnack(context, "Usuário não encontrado.");
+          Utils().showSnack(context, "Usuário não encontrado.");
           return;
         }
-        showSnack(context, "Opps, não foi possível enviar o link. 😕");
+        Utils().showSnack(context, "Opps, não foi possível enviar o link. 😕");
       } catch (e) {
         rethrow;
       }
@@ -85,14 +78,6 @@ class ForgotPasswordScreen extends StatelessWidget {
             );
           }),
         ),
-      ),
-    );
-  }
-
-  void showSnack(BuildContext context, String message) {
-    Scaffold.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
       ),
     );
   }

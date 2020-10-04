@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Auth {
@@ -16,8 +15,6 @@ class Auth {
           email: email.trim(), password: password.trim());
       return "Success";
     } on FirebaseAuthException catch (e) {
-      print(e.code);
-      print(e.message);
       if (e.code == 'weak-password') {
         return 'A senha deve ter pelo menos 6 caracteres.';
       }
