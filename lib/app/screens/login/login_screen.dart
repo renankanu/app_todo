@@ -35,6 +35,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -95,10 +96,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.04),
                   RoundedButton(
-                    isLoading: false,
+                    isLoading: _isLoading,
                     key: const ValueKey("signIn"),
                     text: "Entrar",
                     press: () async {
+                      setState(() {
+                        _isLoading = true;
+                      });
                       final String returnValue =
                           await Auth(auth: widget.auth).signIn(
                         email: _emailController.text,
@@ -107,8 +111,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (returnValue == "Success") {
                         _emailController.clear();
                         _passwordController.clear();
+                        setState(() {
+                          _isLoading = false;
+                        });
                       } else {
                         Utils().showSnack(context, returnValue, kPersimmon);
+                        setState(() {
+                          _isLoading = false;
+                        });
                       }
                     },
                   ),

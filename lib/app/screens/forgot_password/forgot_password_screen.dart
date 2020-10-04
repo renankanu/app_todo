@@ -7,20 +7,34 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
+class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key key}) : super(key: key);
 
+  @override
+  _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
+}
+
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     final TextEditingController _emailController = TextEditingController();
 
+    void changStateIsloading({bool isloading}) {
+      setState(() {
+        _isLoading = isloading;
+      });
+    }
+
     Future validEmail(BuildContext context) async {
       if (_emailController.text.isEmpty) {
         Utils().showSnack(context, "Informe o email.", kPersimmon);
+        changStateIsloading(isloading: false);
         return;
       }
       if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
         Utils().showSnack(context, "Informe um email válido.", kPersimmon);
+        changStateIsloading(isloading: false);
         return;
       }
       try {
@@ -30,10 +44,12 @@ class ForgotPasswordScreen extends StatelessWidget {
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           Utils().showSnack(context, "Usuário não encontrado.", kPersimmon);
+          changStateIsloading(isloading: false);
           return;
         }
         Utils().showSnack(
             context, "Opps, não foi possível enviar o link. 😕", kPersimmon);
+        changStateIsloading(isloading: false);
       } catch (e) {
         rethrow;
       }
@@ -70,8 +86,10 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.06),
                 RoundedButton(
+                  isLoading: _isLoading,
                   text: "Me envie o link",
                   press: () async {
+                    changStateIsloading(isloading: true);
                     await validEmail(context);
                   },
                 ),
