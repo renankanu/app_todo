@@ -15,8 +15,16 @@ class Auth {
       await auth.createUserWithEmailAndPassword(
           email: email.trim(), password: password.trim());
       return "Success";
-    } on FirebaseAuthException catch (error) {
-      return error.message;
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+      print(e.message);
+      if (e.code == 'weak-password') {
+        return 'A senha deve ter pelo menos 6 caracteres.';
+      }
+      if (e.code == 'email-already-in-use') {
+        return 'O endereço de e-mail já está sendo usado por outra conta.';
+      }
+      return 'Opps, não foi possível completar o login. 😕';
     } catch (error) {
       rethrow;
     }

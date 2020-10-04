@@ -27,10 +27,26 @@ class Body extends StatelessWidget {
   final FirebaseAuth _auth;
 
   Future validPassword(BuildContext context) async {
+    if (_emailController.text.isEmpty) {
+      Scaffold.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Informe o email."),
+        ),
+      );
+      return;
+    }
+    if (!emailValidatorRegExp.hasMatch(_emailController.text)) {
+      Scaffold.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Informe um email válido."),
+        ),
+      );
+      return;
+    }
     if (_passwordController.text != _confirmPasswordController.text) {
       Scaffold.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Passwords don't match"),
+          content: Text("As senhas não coincidem."),
         ),
       );
       return;
