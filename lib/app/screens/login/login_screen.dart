@@ -95,6 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.04),
                   RoundedButton(
+                    isLoading: false,
                     key: const ValueKey("signIn"),
                     text: "Entrar",
                     press: () async {
