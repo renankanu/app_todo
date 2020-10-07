@@ -3,6 +3,7 @@ import 'package:app_todo/app/screens/login/widget/no_account_text.dart';
 import 'package:app_todo/app/screens/login/widget/social_icon.dart';
 import 'package:app_todo/app/services/auth.dart';
 import 'package:app_todo/app/utils/images.dart';
+import 'package:app_todo/app/utils/my_icons.dart';
 import 'package:app_todo/app/utils/size_config.dart';
 import 'package:app_todo/app/utils/utils.dart';
 import 'package:app_todo/app/widgets/rounded_button.dart';
@@ -146,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SocalIcon(
-                        iconSrc: "assets/icons/google.svg",
+                        iconSrc: MyIcons.google,
                         press: () {
                           Auth(
                                   auth: widget.auth,
