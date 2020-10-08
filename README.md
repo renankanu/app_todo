@@ -14,6 +14,6 @@
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Application made in flutter, the application is an TODOS of basic tasks, to put into practice the study of flutter. I used firebase to auth and save and retrieve TODOS.
 
 - [FireBase](https://firebase.google.com/)
